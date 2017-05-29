@@ -21,6 +21,6 @@ expected = dataset.target
 predicted = model.predict(dataset.data)
 
 # summarize the fit of the model
-print("---")
+print("metrics:")
 print(metrics.classification_report(expected, predicted))
 print(metrics.confusion_matrix(expected, predicted))
