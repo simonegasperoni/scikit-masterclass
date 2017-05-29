@@ -54,3 +54,13 @@ clf2 = SGDClassifier(loss="hinge", penalty="l2")
 clf2.fit(newcorpus, target)
 scores2 = cross_val_score(clf2, newcorpus, target, cv=10)
 print(scores2)
+
+#trainig on SVR (svm regression)
+print("------------------------------------------------------")
+print("SVM-LinearSVC")
+print("------------------------------------------------------")
+from sklearn import svm
+clf3 = svm.LinearSVC()
+clf3.fit(newcorpus, target)
+scores3 = cross_val_score(clf3, newcorpus, target, cv=10)
+print(scores3)
