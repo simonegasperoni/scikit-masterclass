@@ -17,5 +17,5 @@ an example of multi-label-text-categorization
 #### multi_label_cross_val.py:
 cross validation on multilabel training-set
 
-#### corpus.py
-text corpus handling.py with regular expression and snowball stemmer
+#### Extractor.py
+text corpus handling with regular expression and snowball stemmer + stopwords filtering
