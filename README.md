@@ -1,6 +1,6 @@
 # scikit_notes
 
-install mkl, numpy, pandas, scipy, scikit-learn, snowballstemmer 
+install mkl, numpy, pandas, scipy, scikit-learn, snowballstemmer, psycopg2, beautifulsoup
 
 #### scikitlearn_hello.py: 
 hello world in sklearn
@@ -19,3 +19,9 @@ cross validation on multilabel training-set
 
 #### Extractor.py
 text corpus handling with regular expression and snowball stemmer + stopwords filtering
+
+#### myparser.py
+parser for python: beautifulsoup
+
+#### postgres.py
+psycopg2 utilities (connector postgres for python)
