@@ -19,7 +19,7 @@ class Extractor():
         sw = list(map(lambda word: word.replace("\n", ""), stopwords))
         newlst = []
         for entry in lst:
-            if entry in sw or entry.isdigit():
+            if entry in sw or entry.isdigit() or len(entry) < 2:
                 pass
             else:
                 newlst.append(entry)
