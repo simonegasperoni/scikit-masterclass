@@ -25,3 +25,10 @@ parser for python: beautifulsoup
 
 #### postgres.py
 psycopg2 utilities (connector postgres for python)
+
+#### decision_tree.py
+decision tree and printing tree with dot and graphviz
+```
+dot -Tps filename.dot -o outfile.ps
+```
+
