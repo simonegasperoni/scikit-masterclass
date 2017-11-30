@@ -30,5 +30,6 @@ psycopg2 utilities (connector postgres for python)
 decision tree and printing tree with dot and graphviz
 ```
 dot -Tps filename.dot -o outfile.ps
+dot -Tpng input.dot > output.png
 ```
 
