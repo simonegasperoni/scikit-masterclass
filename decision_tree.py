@@ -1,23 +1,23 @@
 from sklearn import tree
 import pandas as pd
-from sklearn.datasets import load_iris
 import os
-os.environ["PATH"] += os.pathsep + 'C:/Program Files (x86)/Graphviz2.38/bin/'
 
+'''
+    this script contains some utils for decision trees on sklearn
+        tree_to_dot:
+            it obtains .dot script for graphviz
+        tree_to_pseudo:
+            it prints the tree in if/then rules on terminal     
+'''
+
+def tree_to_dot(file, classifier, columns, classes):
+    #on win sy:
+    os.environ["PATH"] += os.pathsep + 'C:/Program Files (x86)/Graphviz2.38/bin/'
+    dotfile = open(file, 'w')
+    tree.export_graphviz(classifier, out_file = dotfile, feature_names = columns, class_names = classes)
+    dotfile.close()
 
 def tree_to_pseudo(tree, feature_names):
-
-    '''
-    Outputs a decision tree model as if/then pseudocode
-    
-    Parameters:
-    -----------
-    tree: decision tree model
-        The decision tree to represent as pseudocode
-    feature_names: list
-        The feature names of the dataset used for building the decision tree
-    '''
-
     left = tree.tree_.children_left
     right = tree.tree_.children_right
     threshold = tree.tree_.threshold
@@ -39,26 +39,16 @@ def tree_to_pseudo(tree, feature_names):
 
     recurse(left, right, threshold, features, 0)
 
-#-----------------------------------------------------
-
-data = pd.read_csv(open('iris.data'))
-target = data['target']
-del data['target']
-
-
-#print(data)
-#print(target)
-
-#clf = DecisionTreeClassifier(criterion = "entropy", random_state = 100, max_depth=3, min_samples_leaf=5)
-#clf.fit(data, target)
-
-#iris = load_iris()
-clf = tree.DecisionTreeClassifier(criterion = "entropy")
-clf = clf.fit(data, target)
-
-#import graphviz
-dotfile = open("dtree3.dot", 'w')
-tree.export_graphviz(clf, out_file = dotfile, feature_names = data.columns, class_names = ['Iris-setosa','Iris-versicolor','Iris-virginica'])
-dotfile.close()
-
-tree_to_pseudo(clf, data.columns)
+if __name__ == "__main__":
+    
+    data = pd.read_csv(open('files/iris.data'))
+    targets = data.target.unique()
+    target = data['target']
+    del data['target']
+    clf = tree.DecisionTreeClassifier(criterion = "entropy")
+    clf = clf.fit(data, target)
+    
+    tree_to_dot('files/dotfile.dot', clf, data.columns, targets)
+    #tree_to_pseudo(clf, data.columns)
+    
+    
