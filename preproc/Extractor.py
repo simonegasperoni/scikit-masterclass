@@ -15,7 +15,7 @@ class Extractor():
         return normal.split()
 
     def stopword_filtering(self, lst):
-        stopwords = set(open('stopword-list.txt', encoding='utf-8'))
+        stopwords = set(open('../files/stopword-list.txt', encoding='utf-8'))
         sw = list(map(lambda word: word.replace("\n", ""), stopwords))
         newlst = []
         for entry in lst:

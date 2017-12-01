@@ -6,7 +6,6 @@ from sklearn.model_selection import cross_val_score
 #pandas csv handler
 #df: data frame
 
-############## corpus  leggero corte dei conti:ccml_ts4kfoldcsv.csv
 df = pd.read_csv('C:/Users/s.gasperoni/Desktop/ccml_ts4kfoldcsv.csv', sep=',')
 corpus = list(df.parag)
 target = list(df.targ)

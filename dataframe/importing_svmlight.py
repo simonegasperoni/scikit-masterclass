@@ -2,7 +2,7 @@ from sklearn.datasets import load_svmlight_file
 from sklearn import svm
 from sklearn.model_selection import cross_val_score
 
-x, y = load_svmlight_file("C:/Users/s.gasperoni/Desktop/svmlight_tr")
+x, y = load_svmlight_file("../files/svmlight_tr")
 print("x:")
 print(x)
 print("y:")

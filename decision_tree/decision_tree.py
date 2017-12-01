@@ -41,14 +41,14 @@ def tree_to_pseudo(tree, feature_names):
 
 if __name__ == "__main__":
     
-    data = pd.read_csv(open('files/iris.data'))
+    data = pd.read_csv(open('../files/iris.data'))
     targets = data.target.unique()
     target = data['target']
     del data['target']
     clf = tree.DecisionTreeClassifier(criterion = "entropy")
     clf = clf.fit(data, target)
     
-    tree_to_dot('files/dotfile.dot', clf, data.columns, targets)
+    tree_to_dot('../files/dotfile.dot', clf, data.columns, targets)
     #tree_to_pseudo(clf, data.columns)
     
     
